@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tuneify/core/theme/app_pallete.dart';
 
 class AuthGradientButton extends StatelessWidget {
-  const AuthGradientButton({super.key});
+  final String text;
+  const AuthGradientButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +23,9 @@ class AuthGradientButton extends StatelessWidget {
           shadowColor: Pallete.transparentColor,
           minimumSize: const Size.fromHeight(55),
         ),
-        child: const Text(
-          "Sign Up",
-          style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tuneify/core/theme/theme.dart';
+import 'package:tuneify/features/auth/presentation/views/signin_page.dart';
 import 'package:tuneify/features/auth/presentation/views/signup_page.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tuneify',
       theme: AppTheme.darkThemeMode,
-      home: const SignupPage(),
+      home: const LoginPage(),
     );
   }
 }
