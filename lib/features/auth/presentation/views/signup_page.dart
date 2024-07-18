@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tuneify/core/theme/app_pallete.dart';
+import 'package:tuneify/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:tuneify/features/auth/presentation/widgets/custom_textfield.dart';
 
 class SignupPage extends StatefulWidget {
@@ -9,8 +11,16 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 
@@ -20,20 +30,51 @@ class _SignupPageState extends State<SignupPage> {
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Sign Up",
-              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 30),
-            CustomTextField(hintText: "Name"),
-            SizedBox(height: 15),
-            CustomTextField(hintText: "Email"),
-            SizedBox(height: 15),
-            CustomTextField(hintText: "Password"),
-          ],
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Sign Up",
+                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 30),
+              CustomTextField(
+                hintText: "Name",
+                controller: _nameController,
+              ),
+              const SizedBox(height: 15),
+              CustomTextField(
+                hintText: "Email",
+                controller: _emailController,
+              ),
+              const SizedBox(height: 15),
+              CustomTextField(
+                hintText: "Password",
+                controller: _passwordController,
+                isObscure: true,
+              ),
+              const SizedBox(height: 20),
+              const AuthGradientButton(),
+              const SizedBox(height: 20),
+              RichText(
+                text: TextSpan(
+                  text: "Already have an account? ",
+                  style: Theme.of(context).textTheme.titleMedium,
+                  children: const [
+                    TextSpan(
+                      text: "Sign In",
+                      style: TextStyle(
+                        color: Pallete.gradient2,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
