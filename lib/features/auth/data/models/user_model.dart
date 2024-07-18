@@ -1,9 +1,7 @@
 import 'dart:convert';
-
-import 'package:equatable/equatable.dart';
 import 'package:tuneify/features/auth/domain/entities/user_entity.dart';
 
-class UserModel extends UserEntity implements Equatable {
+class UserModel extends UserEntity {
   const UserModel({
     required super.name,
     required super.email,
