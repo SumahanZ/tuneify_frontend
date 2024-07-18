@@ -49,8 +49,9 @@ class _LoginPageState extends State<LoginPage> {
                 isObscure: true,
               ),
               const SizedBox(height: 20),
-              const AuthGradientButton(
+              AuthGradientButton(
                 text: 'Sign In',
+                onPressed: () {},
               ),
               const SizedBox(height: 20),
               RichText(
