@@ -34,11 +34,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }) async {
     try {
       final response = await _client.post(
-        Uri.parse(APIConstants.baseURL),
+        Uri.parse("${APIConstants.baseURL}${APIConstants.signupEndpoint}"),
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: jsonEncode({
-          name,
-          email,
-          password,
+          "name": name,
+          "email": email,
+          "password": password,
         }),
       );
 

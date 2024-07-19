@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:tuneify/core/exceptions/exception.dart';
-import 'package:tuneify/core/exceptions/failure.dart';
+import 'package:tuneify/core/failures/failure.dart';
 import 'package:tuneify/core/typaliases/typealias.dart';
+import 'package:tuneify/core/utils/logger.dart';
 import 'package:tuneify/features/auth/data/datasources/auth_local_datasource.dart';
 import 'package:tuneify/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:tuneify/features/auth/domain/repositories/auth_repository.dart';
@@ -17,6 +18,7 @@ final authRepositoryProvider = Provider(
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
+  // ignore: unused_field
   final AuthLocalDataSource _authLocalDataSource;
 
   AuthRepositoryImpl(this._authRemoteDataSource, this._authLocalDataSource);
@@ -49,9 +51,19 @@ class AuthRepositoryImpl implements AuthRepository {
         password: password,
       );
       return const Right(null);
-    } on ServerException catch (err) {
+    } on ServerException catch (err, stackTrace) {
+      MyErrorLogger.sendLog(
+        error: err,
+        text: err.message,
+        stackTrace: stackTrace,
+      );
       return Left(ServerFailure.fromException(err));
-    } on UnknownException catch (err) {
+    } on UnknownException catch (err, stackTrace) {
+      MyErrorLogger.sendLog(
+        error: err,
+        text: err.message,
+        stackTrace: stackTrace,
+      );
       return Left(UnknownFailure.fromException(err));
     }
   }

@@ -18,7 +18,21 @@ class AuthNotifier extends _$AuthNotifier {
     return const AuthState.initial();
   }
 
-  void signUp() {}
+  void signUp({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    state = const AuthState.loading();
+    final result = await ref.read(authUseCaseProvider).authSignUp(
+          AuthSignUpParams(name: name, email: email, password: password),
+        );
+
+    result.fold(
+      (l) => state = AuthState.failure(l),
+      (r) => state = const AuthState.success("Success signing up!"),
+    );
+  }
 }
 
 class AuthUseCases {

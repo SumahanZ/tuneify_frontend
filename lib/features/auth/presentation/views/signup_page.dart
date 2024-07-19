@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tuneify/core/theme/app_pallete.dart';
+import 'package:tuneify/core/utils/utils.dart';
 import 'package:tuneify/features/auth/presentation/providers/auth_notifier.dart';
+import 'package:tuneify/features/auth/presentation/providers/auth_state.dart';
 import 'package:tuneify/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:tuneify/features/auth/presentation/widgets/custom_textfield.dart';
 
@@ -28,62 +30,82 @@ class _SignupPageState extends ConsumerState<SignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Sign Up",
-                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 30),
-              CustomTextField(
-                hintText: "Name",
-                controller: _nameController,
-              ),
-              const SizedBox(height: 15),
-              CustomTextField(
-                hintText: "Email",
-                controller: _emailController,
-              ),
-              const SizedBox(height: 15),
-              CustomTextField(
-                hintText: "Password",
-                controller: _passwordController,
-                isObscure: true,
-              ),
-              const SizedBox(height: 20),
-              AuthGradientButton(
-                text: "Sign Up",
-                onPressed: () {
-                  ref.read(authNotifierProvider.notifier).signUp();
-                },
-              ),
-              const SizedBox(height: 20),
-              RichText(
-                text: TextSpan(
-                  text: "Already have an account? ",
-                  style: Theme.of(context).textTheme.titleMedium,
-                  children: const [
-                    TextSpan(
-                      text: "Sign In",
-                      style: TextStyle(
-                        color: Pallete.gradient2,
-                        fontWeight: FontWeight.bold,
-                      ),
+    final authState = ref.watch(authNotifierProvider);
+
+    ref.listen(authNotifierProvider, (previous, next) {
+      switch (authState) {
+        case Success(message: var message):
+          showSnackbar(text: message, context: context);
+        case Failure(failure: var failure):
+          showSnackbar(text: failure.message, context: context);
+        default:
+          break;
+      }
+    });
+
+    return switch (authState) {
+      Loading() => const Center(child: CircularProgressIndicator()),
+      _ => Scaffold(
+          appBar: AppBar(),
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Sign Up",
+                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 30),
+                  CustomTextField(
+                    hintText: "Name",
+                    controller: _nameController,
+                  ),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    hintText: "Email",
+                    controller: _emailController,
+                  ),
+                  const SizedBox(height: 15),
+                  CustomTextField(
+                    hintText: "Password",
+                    controller: _passwordController,
+                    isObscure: true,
+                  ),
+                  const SizedBox(height: 20),
+                  AuthGradientButton(
+                    text: "Sign Up",
+                    onPressed: () {
+                      ref.read(authNotifierProvider.notifier).signUp(
+                            name: _nameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  RichText(
+                    text: TextSpan(
+                      text: "Already have an account? ",
+                      style: Theme.of(context).textTheme.titleMedium,
+                      children: const [
+                        TextSpan(
+                          text: "Sign In",
+                          style: TextStyle(
+                            color: Pallete.gradient2,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
-      ),
-    );
+    };
   }
 }

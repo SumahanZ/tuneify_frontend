@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:tuneify/core/exceptions/exception.dart';
 
-abstract class Failure extends Equatable {
+abstract class CommonFailure extends Equatable {
   final String errorMessage;
   final int? statusCode;
 
-  const Failure({
+  const CommonFailure({
     required this.errorMessage,
     this.statusCode,
   });
@@ -16,7 +16,7 @@ abstract class Failure extends Equatable {
   List<Object> get props => [errorMessage];
 }
 
-class ServerFailure extends Failure {
+class ServerFailure extends CommonFailure {
   const ServerFailure({required super.errorMessage, super.statusCode});
 
   factory ServerFailure.fromException(CommonException exception) {
@@ -27,7 +27,7 @@ class ServerFailure extends Failure {
   }
 }
 
-class UnknownFailure extends Failure {
+class UnknownFailure extends CommonFailure {
   const UnknownFailure({required super.errorMessage});
 
   factory UnknownFailure.fromException(CommonException exception) {

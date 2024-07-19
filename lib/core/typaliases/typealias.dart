@@ -1,4 +1,4 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:tuneify/core/exceptions/failure.dart';
+import 'package:tuneify/core/failures/failure.dart';
 
-typedef ResultFuture<T> = Future<Either<Failure, T>>;
+typedef ResultFuture<T> = Future<Either<CommonFailure, T>>;
