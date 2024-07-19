@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tuneify/core/theme/app_pallete.dart';
+import 'package:tuneify/features/auth/presentation/providers/auth_notifier.dart';
 import 'package:tuneify/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:tuneify/features/auth/presentation/widgets/custom_textfield.dart';
 
-class SignupPage extends StatefulWidget {
+class SignupPage extends ConsumerStatefulWidget {
   const SignupPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  ConsumerState<SignupPage> createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends ConsumerState<SignupPage> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -57,8 +59,10 @@ class _SignupPageState extends State<SignupPage> {
               ),
               const SizedBox(height: 20),
               AuthGradientButton(
-                text: "Sign In",
-                onPressed: () {},
+                text: "Sign Up",
+                onPressed: () {
+                  ref.read(authNotifierProvider.notifier).signUp();
+                },
               ),
               const SizedBox(height: 20),
               RichText(
