@@ -21,7 +21,8 @@ mixin _$AuthState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CommonFailure failure) failure,
-    required TResult Function(String message) success,
+    required TResult Function(String message) createUserSuccess,
+    required TResult Function() loginUserSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +30,8 @@ mixin _$AuthState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CommonFailure failure)? failure,
-    TResult? Function(String message)? success,
+    TResult? Function(String message)? createUserSuccess,
+    TResult? Function()? loginUserSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +39,8 @@ mixin _$AuthState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CommonFailure failure)? failure,
-    TResult Function(String message)? success,
+    TResult Function(String message)? createUserSuccess,
+    TResult Function()? loginUserSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +49,8 @@ mixin _$AuthState {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(CreateUserSuccess value) createUserSuccess,
+    required TResult Function(LoginUserSuccess value) loginUserSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +58,8 @@ mixin _$AuthState {
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(CreateUserSuccess value)? createUserSuccess,
+    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +67,8 @@ mixin _$AuthState {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(CreateUserSuccess value)? createUserSuccess,
+    TResult Function(LoginUserSuccess value)? loginUserSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +132,8 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CommonFailure failure) failure,
-    required TResult Function(String message) success,
+    required TResult Function(String message) createUserSuccess,
+    required TResult Function() loginUserSuccess,
   }) {
     return initial();
   }
@@ -137,7 +144,8 @@ class _$InitialImpl implements Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CommonFailure failure)? failure,
-    TResult? Function(String message)? success,
+    TResult? Function(String message)? createUserSuccess,
+    TResult? Function()? loginUserSuccess,
   }) {
     return initial?.call();
   }
@@ -148,7 +156,8 @@ class _$InitialImpl implements Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CommonFailure failure)? failure,
-    TResult Function(String message)? success,
+    TResult Function(String message)? createUserSuccess,
+    TResult Function()? loginUserSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -163,7 +172,8 @@ class _$InitialImpl implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(CreateUserSuccess value) createUserSuccess,
+    required TResult Function(LoginUserSuccess value) loginUserSuccess,
   }) {
     return initial(this);
   }
@@ -174,7 +184,8 @@ class _$InitialImpl implements Initial {
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(CreateUserSuccess value)? createUserSuccess,
+    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
   }) {
     return initial?.call(this);
   }
@@ -185,7 +196,8 @@ class _$InitialImpl implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(CreateUserSuccess value)? createUserSuccess,
+    TResult Function(LoginUserSuccess value)? loginUserSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -240,7 +252,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CommonFailure failure) failure,
-    required TResult Function(String message) success,
+    required TResult Function(String message) createUserSuccess,
+    required TResult Function() loginUserSuccess,
   }) {
     return loading();
   }
@@ -251,7 +264,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CommonFailure failure)? failure,
-    TResult? Function(String message)? success,
+    TResult? Function(String message)? createUserSuccess,
+    TResult? Function()? loginUserSuccess,
   }) {
     return loading?.call();
   }
@@ -262,7 +276,8 @@ class _$LoadingImpl implements Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CommonFailure failure)? failure,
-    TResult Function(String message)? success,
+    TResult Function(String message)? createUserSuccess,
+    TResult Function()? loginUserSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -277,7 +292,8 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(CreateUserSuccess value) createUserSuccess,
+    required TResult Function(LoginUserSuccess value) loginUserSuccess,
   }) {
     return loading(this);
   }
@@ -288,7 +304,8 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(CreateUserSuccess value)? createUserSuccess,
+    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
   }) {
     return loading?.call(this);
   }
@@ -299,7 +316,8 @@ class _$LoadingImpl implements Loading {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(CreateUserSuccess value)? createUserSuccess,
+    TResult Function(LoginUserSuccess value)? loginUserSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -380,7 +398,8 @@ class _$FailureImpl implements Failure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CommonFailure failure) failure,
-    required TResult Function(String message) success,
+    required TResult Function(String message) createUserSuccess,
+    required TResult Function() loginUserSuccess,
   }) {
     return failure(this.failure);
   }
@@ -391,7 +410,8 @@ class _$FailureImpl implements Failure {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CommonFailure failure)? failure,
-    TResult? Function(String message)? success,
+    TResult? Function(String message)? createUserSuccess,
+    TResult? Function()? loginUserSuccess,
   }) {
     return failure?.call(this.failure);
   }
@@ -402,7 +422,8 @@ class _$FailureImpl implements Failure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CommonFailure failure)? failure,
-    TResult Function(String message)? success,
+    TResult Function(String message)? createUserSuccess,
+    TResult Function()? loginUserSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -417,7 +438,8 @@ class _$FailureImpl implements Failure {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(CreateUserSuccess value) createUserSuccess,
+    required TResult Function(LoginUserSuccess value) loginUserSuccess,
   }) {
     return failure(this);
   }
@@ -428,7 +450,8 @@ class _$FailureImpl implements Failure {
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(CreateUserSuccess value)? createUserSuccess,
+    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
   }) {
     return failure?.call(this);
   }
@@ -439,7 +462,8 @@ class _$FailureImpl implements Failure {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(CreateUserSuccess value)? createUserSuccess,
+    TResult Function(LoginUserSuccess value)? loginUserSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -459,20 +483,20 @@ abstract class Failure implements AuthState {
 }
 
 /// @nodoc
-abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(
-          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+abstract class _$$CreateUserSuccessImplCopyWith<$Res> {
+  factory _$$CreateUserSuccessImplCopyWith(_$CreateUserSuccessImpl value,
+          $Res Function(_$CreateUserSuccessImpl) then) =
+      __$$CreateUserSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$SuccessImpl>
-    implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(
-      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+class __$$CreateUserSuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$CreateUserSuccessImpl>
+    implements _$$CreateUserSuccessImplCopyWith<$Res> {
+  __$$CreateUserSuccessImplCopyWithImpl(_$CreateUserSuccessImpl _value,
+      $Res Function(_$CreateUserSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -480,7 +504,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$SuccessImpl(
+    return _then(_$CreateUserSuccessImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -491,22 +515,22 @@ class __$$SuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.message);
+class _$CreateUserSuccessImpl implements CreateUserSuccess {
+  const _$CreateUserSuccessImpl(this.message);
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'AuthState.success(message: $message)';
+    return 'AuthState.createUserSuccess(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
+            other is _$CreateUserSuccessImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -516,8 +540,9 @@ class _$SuccessImpl implements Success {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
-      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+  _$$CreateUserSuccessImplCopyWith<_$CreateUserSuccessImpl> get copyWith =>
+      __$$CreateUserSuccessImplCopyWithImpl<_$CreateUserSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -525,9 +550,10 @@ class _$SuccessImpl implements Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(CommonFailure failure) failure,
-    required TResult Function(String message) success,
+    required TResult Function(String message) createUserSuccess,
+    required TResult Function() loginUserSuccess,
   }) {
-    return success(message);
+    return createUserSuccess(message);
   }
 
   @override
@@ -536,9 +562,10 @@ class _$SuccessImpl implements Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(CommonFailure failure)? failure,
-    TResult? Function(String message)? success,
+    TResult? Function(String message)? createUserSuccess,
+    TResult? Function()? loginUserSuccess,
   }) {
-    return success?.call(message);
+    return createUserSuccess?.call(message);
   }
 
   @override
@@ -547,11 +574,12 @@ class _$SuccessImpl implements Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(CommonFailure failure)? failure,
-    TResult Function(String message)? success,
+    TResult Function(String message)? createUserSuccess,
+    TResult Function()? loginUserSuccess,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(message);
+    if (createUserSuccess != null) {
+      return createUserSuccess(message);
     }
     return orElse();
   }
@@ -562,9 +590,10 @@ class _$SuccessImpl implements Success {
     required TResult Function(Initial value) initial,
     required TResult Function(Loading value) loading,
     required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
+    required TResult Function(CreateUserSuccess value) createUserSuccess,
+    required TResult Function(LoginUserSuccess value) loginUserSuccess,
   }) {
-    return success(this);
+    return createUserSuccess(this);
   }
 
   @override
@@ -573,9 +602,10 @@ class _$SuccessImpl implements Success {
     TResult? Function(Initial value)? initial,
     TResult? Function(Loading value)? loading,
     TResult? Function(Failure value)? failure,
-    TResult? Function(Success value)? success,
+    TResult? Function(CreateUserSuccess value)? createUserSuccess,
+    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
   }) {
-    return success?.call(this);
+    return createUserSuccess?.call(this);
   }
 
   @override
@@ -584,21 +614,143 @@ class _$SuccessImpl implements Success {
     TResult Function(Initial value)? initial,
     TResult Function(Loading value)? loading,
     TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
+    TResult Function(CreateUserSuccess value)? createUserSuccess,
+    TResult Function(LoginUserSuccess value)? loginUserSuccess,
     required TResult orElse(),
   }) {
-    if (success != null) {
-      return success(this);
+    if (createUserSuccess != null) {
+      return createUserSuccess(this);
     }
     return orElse();
   }
 }
 
-abstract class Success implements AuthState {
-  const factory Success(final String message) = _$SuccessImpl;
+abstract class CreateUserSuccess implements AuthState {
+  const factory CreateUserSuccess(final String message) =
+      _$CreateUserSuccessImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+  _$$CreateUserSuccessImplCopyWith<_$CreateUserSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoginUserSuccessImplCopyWith<$Res> {
+  factory _$$LoginUserSuccessImplCopyWith(_$LoginUserSuccessImpl value,
+          $Res Function(_$LoginUserSuccessImpl) then) =
+      __$$LoginUserSuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoginUserSuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$LoginUserSuccessImpl>
+    implements _$$LoginUserSuccessImplCopyWith<$Res> {
+  __$$LoginUserSuccessImplCopyWithImpl(_$LoginUserSuccessImpl _value,
+      $Res Function(_$LoginUserSuccessImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoginUserSuccessImpl implements LoginUserSuccess {
+  const _$LoginUserSuccessImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.loginUserSuccess()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoginUserSuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(CommonFailure failure) failure,
+    required TResult Function(String message) createUserSuccess,
+    required TResult Function() loginUserSuccess,
+  }) {
+    return loginUserSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CommonFailure failure)? failure,
+    TResult? Function(String message)? createUserSuccess,
+    TResult? Function()? loginUserSuccess,
+  }) {
+    return loginUserSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(CommonFailure failure)? failure,
+    TResult Function(String message)? createUserSuccess,
+    TResult Function()? loginUserSuccess,
+    required TResult orElse(),
+  }) {
+    if (loginUserSuccess != null) {
+      return loginUserSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Failure value) failure,
+    required TResult Function(CreateUserSuccess value) createUserSuccess,
+    required TResult Function(LoginUserSuccess value) loginUserSuccess,
+  }) {
+    return loginUserSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Failure value)? failure,
+    TResult? Function(CreateUserSuccess value)? createUserSuccess,
+    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
+  }) {
+    return loginUserSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Failure value)? failure,
+    TResult Function(CreateUserSuccess value)? createUserSuccess,
+    TResult Function(LoginUserSuccess value)? loginUserSuccess,
+    required TResult orElse(),
+  }) {
+    if (loginUserSuccess != null) {
+      return loginUserSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoginUserSuccess implements AuthState {
+  const factory LoginUserSuccess() = _$LoginUserSuccessImpl;
 }

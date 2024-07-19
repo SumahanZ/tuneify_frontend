@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tuneify/core/theme/app_pallete.dart';
 import 'package:tuneify/core/utils/utils.dart';
 import 'package:tuneify/features/auth/presentation/providers/auth_notifier.dart';
 import 'package:tuneify/features/auth/presentation/providers/auth_state.dart';
+import 'package:tuneify/features/auth/presentation/views/signin_page.dart';
 import 'package:tuneify/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:tuneify/features/auth/presentation/widgets/custom_textfield.dart';
 
@@ -33,8 +35,8 @@ class _SignupPageState extends ConsumerState<SignupPage> {
     final authState = ref.watch(authNotifierProvider);
 
     ref.listen(authNotifierProvider, (previous, next) {
-      switch (authState) {
-        case Success(message: var message):
+      switch (next) {
+        case CreateUserSuccess(message: var message):
           showSnackbar(text: message, context: context);
         case Failure(failure: var failure):
           showSnackbar(text: failure.message, context: context);
@@ -46,7 +48,10 @@ class _SignupPageState extends ConsumerState<SignupPage> {
     return switch (authState) {
       Loading() => const Center(child: CircularProgressIndicator()),
       _ => Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            title: const Text("SignUp Page"),
+            centerTitle: true,
+          ),
           body: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Form(
@@ -90,10 +95,18 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                     text: TextSpan(
                       text: "Already have an account? ",
                       style: Theme.of(context).textTheme.titleMedium,
-                      children: const [
+                      children: [
                         TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                  builder: (context) => const LoginPage(),
+                                ),
+                              );
+                            },
                           text: "Sign In",
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Pallete.gradient2,
                             fontWeight: FontWeight.bold,
                           ),

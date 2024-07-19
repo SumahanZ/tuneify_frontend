@@ -15,7 +15,7 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
 
-  Future<void> login({
+  Future<Map<String, dynamic>> login({
     required String email,
     required String password,
   });
@@ -59,10 +59,37 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> login({
+  Future<Map<String, dynamic>> login({
     required String email,
     required String password,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    try {
+      final response = await _client.post(
+        Uri.parse("${APIConstants.baseURL}${APIConstants.loginEndpoint}"),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonEncode({
+          "email": email,
+          "password": password,
+        }),
+      );
+
+      if (response.statusCode != 200 && response.statusCode != 201) {
+        throw ServerException(
+          message: response.body,
+          statusCode: response.statusCode,
+        );
+      }
+
+      final decodedResponse = jsonDecode(response.body);
+      print(decodedResponse);
+
+      return decodedResponse;
+    } on ServerException {
+      rethrow;
+    } catch (err) {
+      throw UnknownException(message: err.toString(), statusCode: 500);
+    }
   }
 }

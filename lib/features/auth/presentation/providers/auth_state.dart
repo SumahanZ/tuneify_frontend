@@ -7,5 +7,6 @@ sealed class AuthState with _$AuthState {
   const factory AuthState.initial() = Initial;
   const factory AuthState.loading() = Loading;
   const factory AuthState.failure(CommonFailure failure) = Failure;
-  const factory AuthState.success(String message) = Success;
+  const factory AuthState.createUserSuccess(String message) = CreateUserSuccess;
+  const factory AuthState.loginUserSuccess() = LoginUserSuccess;
 }

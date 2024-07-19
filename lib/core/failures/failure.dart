@@ -13,7 +13,9 @@ abstract class CommonFailure extends Equatable {
   String get message => "$statusCode Error: $errorMessage";
 
   @override
-  List<Object> get props => [errorMessage];
+  List<Object> get props => [
+        errorMessage,
+      ];
 }
 
 class ServerFailure extends CommonFailure {
@@ -32,6 +34,16 @@ class UnknownFailure extends CommonFailure {
 
   factory UnknownFailure.fromException(CommonException exception) {
     return UnknownFailure(
+      errorMessage: exception.message,
+    );
+  }
+}
+
+class SharedPreferenceFailure extends CommonFailure {
+  const SharedPreferenceFailure({required super.errorMessage});
+
+  factory SharedPreferenceFailure.fromException(CommonException exception) {
+    return SharedPreferenceFailure(
       errorMessage: exception.message,
     );
   }
