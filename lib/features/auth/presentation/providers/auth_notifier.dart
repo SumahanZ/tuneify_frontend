@@ -48,12 +48,12 @@ class AuthNotifier extends _$AuthNotifier {
           AuthLoginParams(email: email, password: password),
         );
 
-    result.fold(
-      (l) {
-        state = AuthState.failure(l);
-      },
-      (r) => state = const AuthState.loginUserSuccess(),
-    );
+    result.fold((l) {
+      state = AuthState.failure(l);
+    }, (r) async {
+      await Future.delayed(const Duration(seconds: 1));
+      state = const AuthState.loginUserSuccess();
+    });
   }
 
   void getData() async {

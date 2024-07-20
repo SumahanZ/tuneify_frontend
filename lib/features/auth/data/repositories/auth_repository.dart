@@ -3,7 +3,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:tuneify/core/exception/exception.dart';
 import 'package:tuneify/core/failure/failure.dart';
 import 'package:tuneify/core/providers/shared_preference_provider.dart';
-import 'package:tuneify/core/typaliases/typealias.dart';
+import 'package:tuneify/core/typealias/typealias.dart';
 import 'package:tuneify/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:tuneify/features/auth/domain/repositories/auth_repository.dart';
 

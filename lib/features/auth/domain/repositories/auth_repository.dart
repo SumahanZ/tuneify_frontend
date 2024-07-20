@@ -1,4 +1,4 @@
-import 'package:tuneify/core/typaliases/typealias.dart';
+import 'package:tuneify/core/typealias/typealias.dart';
 
 abstract class AuthRepository {
   ResultFuture<void> signUp({
