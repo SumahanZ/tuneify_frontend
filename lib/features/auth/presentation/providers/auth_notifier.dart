@@ -1,4 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:tuneify/core/enums/get_data_enum.dart';
+import 'package:tuneify/core/failure/failure.dart';
+import 'package:tuneify/features/auth/domain/usecases/auth_get_data.dart';
 import 'package:tuneify/features/auth/domain/usecases/auth_login.dart';
 import 'package:tuneify/features/auth/domain/usecases/auth_signup.dart';
 import 'package:tuneify/features/auth/presentation/providers/auth_state.dart';
@@ -8,6 +11,7 @@ final authUseCaseProvider = Provider(
   (ref) => AuthUseCases(
     authLogin: ref.watch(authLoginProvider),
     authSignUp: ref.watch(authSignUpProvider),
+    authGetData: ref.watch(authGetDataProvider),
   ),
 );
 
@@ -15,6 +19,7 @@ final authUseCaseProvider = Provider(
 class AuthNotifier extends _$AuthNotifier {
   @override
   AuthState build() {
+    getData();
     return const AuthState.initial();
   }
 
@@ -50,14 +55,30 @@ class AuthNotifier extends _$AuthNotifier {
       (r) => state = const AuthState.loginUserSuccess(),
     );
   }
+
+  void getData() async {
+    final result = await ref.read(authUseCaseProvider).authGetData();
+
+    result.fold(
+      (l) {
+        if (l is ServerFailure) {
+          return state = const AuthState.getDataSuccess(GetData.notLoggedIn);
+        }
+        state = AuthState.failure(l);
+      },
+      (r) => state = const AuthState.getDataSuccess(GetData.loggedIn),
+    );
+  }
 }
 
 class AuthUseCases {
   final AuthLoginUseCase authLogin;
   final AuthSignUpUseCase authSignUp;
+  final AuthGetDataUseCase authGetData;
 
   AuthUseCases({
     required this.authLogin,
     required this.authSignUp,
+    required this.authGetData,
   });
 }

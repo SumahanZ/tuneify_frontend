@@ -1,0 +1,1 @@
+enum GetData { loggedIn, notLoggedIn }

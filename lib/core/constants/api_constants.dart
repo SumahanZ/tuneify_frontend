@@ -3,4 +3,5 @@ class APIConstants {
   //Users & Auth Endpoints
   static const signupEndpoint = "/user/signup";
   static const loginEndpoint = "/user/login";
+  static const getDataEndpoint = "/user/get-data";
 }

@@ -1,10 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:tuneify/core/exceptions/exception.dart';
-import 'package:tuneify/core/failures/failure.dart';
+import 'package:tuneify/core/exception/exception.dart';
+import 'package:tuneify/core/failure/failure.dart';
 import 'package:tuneify/core/providers/shared_preference_provider.dart';
 import 'package:tuneify/core/typaliases/typealias.dart';
-import 'package:tuneify/core/utils/logger.dart';
 import 'package:tuneify/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:tuneify/features/auth/domain/repositories/auth_repository.dart';
 
@@ -36,13 +35,10 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response =
           await _authRemoteDataSource.login(email: email, password: password);
-
       _sharedPref.save("tokens", {
         "accessToken": response["refreshToken"],
         "refreshToken": response["accessToken"],
       });
-
-      print("Entered here");
 
       return const Right(null);
     } on ServerException catch (err) {
@@ -64,20 +60,27 @@ class AuthRepositoryImpl implements AuthRepository {
         email: email,
         password: password,
       );
+
       return const Right(null);
-    } on ServerException catch (err, stackTrace) {
-      MyErrorLogger.sendLog(
-        error: err,
-        text: err.message,
-        stackTrace: stackTrace,
-      );
+    } on ServerException catch (err) {
       return Left(ServerFailure.fromException(err));
-    } on UnknownException catch (err, stackTrace) {
-      MyErrorLogger.sendLog(
-        error: err,
-        text: err.message,
-        stackTrace: stackTrace,
-      );
+    } on UnknownException catch (err) {
+      return Left(UnknownFailure.fromException(err));
+    }
+  }
+
+  @override
+  ResultFuture<void> getData() async {
+    try {
+      final tokens = await _sharedPref.read("tokens");
+      await _authRemoteDataSource.getData(tokens);
+
+      return const Right(null);
+    } on SharedPreferenceException catch (err) {
+      return Left(SharedPreferenceFailure.fromException(err));
+    } on ServerException catch (err) {
+      return Left(ServerFailure.fromException(err));
+    } on UnknownException catch (err) {
       return Left(UnknownFailure.fromException(err));
     }
   }

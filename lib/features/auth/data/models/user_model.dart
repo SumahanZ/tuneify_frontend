@@ -5,18 +5,18 @@ class UserModel extends UserEntity {
   const UserModel({
     required super.name,
     required super.email,
-    required super.password,
+    required super.id,
   });
 
   UserEntity copyWith({
     String? name,
     String? email,
-    String? password,
+    String? id,
   }) {
     return UserEntity(
       name: name ?? this.name,
       email: email ?? this.email,
-      password: password ?? this.password,
+      id: id ?? this.id,
     );
   }
 
@@ -24,7 +24,7 @@ class UserModel extends UserEntity {
     return <String, dynamic>{
       'name': name,
       'email': email,
-      'password': password,
+      '_id': id,
     };
   }
 
@@ -32,7 +32,7 @@ class UserModel extends UserEntity {
     return UserModel(
       name: map['name'] as String,
       email: map['email'] as String,
-      password: map['password'] as String,
+      id: map['_id'] as String,
     );
   }
 

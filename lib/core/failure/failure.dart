@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:tuneify/core/exceptions/exception.dart';
+import 'package:tuneify/core/exception/exception.dart';
 
 abstract class CommonFailure extends Equatable {
   final String errorMessage;

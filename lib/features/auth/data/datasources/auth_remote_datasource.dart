@@ -2,7 +2,7 @@ import "dart:convert";
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import "package:http/http.dart" as http;
 import "package:tuneify/core/constants/api_constants.dart";
-import "package:tuneify/core/exceptions/exception.dart";
+import "package:tuneify/core/exception/exception.dart";
 import "package:tuneify/core/providers/http_provider.dart";
 
 final authRemoteDataSourceProvider =
@@ -19,6 +19,8 @@ abstract class AuthRemoteDataSource {
     required String email,
     required String password,
   });
+
+  Future<void> getData(Map<String, dynamic> tokens);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -82,10 +84,32 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         );
       }
 
-      final decodedResponse = jsonDecode(response.body);
-      print(decodedResponse);
+      return jsonDecode(response.body) as Map<String, dynamic>;
+    } on ServerException {
+      rethrow;
+    } catch (err) {
+      throw UnknownException(message: err.toString(), statusCode: 500);
+    }
+  }
 
-      return decodedResponse;
+  @override
+  Future<void> getData(Map<String, dynamic> tokens) async {
+    try {
+      final response = await _client.get(
+        Uri.parse("${APIConstants.baseURL}${APIConstants.getDataEndpoint}"),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer ${tokens["accessToken"]}",
+          "x-refresh": tokens["refreshToken"],
+        },
+      );
+
+      if (response.statusCode != 200 && response.statusCode != 201) {
+        throw ServerException(
+          message: response.body,
+          statusCode: response.statusCode,
+        );
+      }
     } on ServerException {
       rethrow;
     } catch (err) {
