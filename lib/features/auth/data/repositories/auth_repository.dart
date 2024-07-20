@@ -73,8 +73,7 @@ class AuthRepositoryImpl implements AuthRepository {
   ResultFuture<void> getData() async {
     try {
       final tokens = await _sharedPref.read("tokens");
-      await _authRemoteDataSource.getData(tokens);
-
+      await _authRemoteDataSource.getData(tokens, _sharedPref);
       return const Right(null);
     } on SharedPreferenceException catch (err) {
       return Left(SharedPreferenceFailure.fromException(err));

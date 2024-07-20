@@ -4,6 +4,8 @@ import "package:http/http.dart" as http;
 import "package:tuneify/core/constants/api_constants.dart";
 import "package:tuneify/core/exception/exception.dart";
 import "package:tuneify/core/providers/http_provider.dart";
+import "package:tuneify/core/providers/shared_preference_provider.dart";
+import "package:tuneify/core/utils/utils.dart";
 
 final authRemoteDataSourceProvider =
     Provider((ref) => AuthRemoteDataSourceImpl(ref.watch(httpClientProvider)));
@@ -20,7 +22,7 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
 
-  Future<void> getData(Map<String, dynamic> tokens);
+  Future<void> getData(Map<String, dynamic> tokens, SharedPref pref);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -93,7 +95,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> getData(Map<String, dynamic> tokens) async {
+  Future<void> getData(Map<String, dynamic> tokens, SharedPref pref) async {
     try {
       final response = await _client.get(
         Uri.parse("${APIConstants.baseURL}${APIConstants.getDataEndpoint}"),
@@ -110,6 +112,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
           statusCode: response.statusCode,
         );
       }
+
+      handleRefreshAccessToken(response, pref);
     } on ServerException {
       rethrow;
     } catch (err) {
