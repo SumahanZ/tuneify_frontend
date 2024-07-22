@@ -7,7 +7,7 @@ import 'package:tuneify/features/auth/presentation/providers/auth_notifier.dart'
 import 'package:tuneify/features/auth/presentation/providers/auth_state.dart';
 import 'package:tuneify/features/auth/presentation/views/signin_page.dart';
 import 'package:tuneify/features/auth/presentation/widgets/auth_gradient_button.dart';
-import 'package:tuneify/features/auth/presentation/widgets/custom_textfield.dart';
+import 'package:tuneify/core/widgets/custom_textfield.dart';
 
 class SignupPage extends ConsumerStatefulWidget {
   const SignupPage({super.key});
@@ -36,9 +36,9 @@ class _SignupPageState extends ConsumerState<SignupPage> {
 
     ref.listen(authNotifierProvider, (previous, next) {
       switch (next) {
-        case CreateUserSuccess(message: var message):
+        case AuthCreateUserSuccess(message: var message):
           showSnackbar(text: message, context: context);
-        case Failure(failure: var failure):
+        case AuthFailure(failure: var failure):
           showSnackbar(text: failure.message, context: context);
         default:
           break;
@@ -46,7 +46,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
     });
 
     return switch (authState) {
-      Loading() => const Center(child: CircularProgressIndicator()),
+      AuthLoading() => const Center(child: CircularProgressIndicator()),
       _ => Scaffold(
           appBar: AppBar(
             title: const Text("SignUp Page"),

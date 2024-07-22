@@ -4,7 +4,7 @@ import 'package:tuneify/core/enums/get_data_enum.dart';
 import 'package:tuneify/features/auth/presentation/providers/auth_notifier.dart';
 import 'package:tuneify/features/auth/presentation/providers/auth_state.dart';
 import 'package:tuneify/features/auth/presentation/views/signin_page.dart';
-import 'package:tuneify/test_page.dart';
+import 'package:tuneify/features/song/presentation/views/upload_song_page.dart';
 
 class WrapperPage extends ConsumerWidget {
   const WrapperPage({super.key});
@@ -13,11 +13,11 @@ class WrapperPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(authNotifierProvider, (previous, next) {
       switch (next) {
-        case GetDataSuccess(getData: final getData):
+        case AuthGetDataSuccess(getData: final getData):
           if (getData == GetData.loggedIn) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => const TestPage()),
+                MaterialPageRoute(builder: (context) => const UploadSongPage()),
               );
             });
           }

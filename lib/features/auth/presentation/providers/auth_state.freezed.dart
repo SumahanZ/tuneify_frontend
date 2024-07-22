@@ -49,32 +49,32 @@ mixin _$AuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,25 +98,25 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+abstract class _$$AuthInitialImplCopyWith<$Res> {
+  factory _$$AuthInitialImplCopyWith(
+          _$AuthInitialImpl value, $Res Function(_$AuthInitialImpl) then) =
+      __$$AuthInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+class __$$AuthInitialImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthInitialImpl>
+    implements _$$AuthInitialImplCopyWith<$Res> {
+  __$$AuthInitialImplCopyWithImpl(
+      _$AuthInitialImpl _value, $Res Function(_$AuthInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InitialImpl implements Initial {
-  const _$InitialImpl();
+class _$AuthInitialImpl implements AuthInitial {
+  const _$AuthInitialImpl();
 
   @override
   String toString() {
@@ -126,7 +126,7 @@ class _$InitialImpl implements Initial {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
+        (other.runtimeType == runtimeType && other is _$AuthInitialImpl);
   }
 
   @override
@@ -178,12 +178,12 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) {
     return initial(this);
   }
@@ -191,12 +191,12 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) {
     return initial?.call(this);
   }
@@ -204,12 +204,12 @@ class _$InitialImpl implements Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -219,30 +219,30 @@ class _$InitialImpl implements Initial {
   }
 }
 
-abstract class Initial implements AuthState {
-  const factory Initial() = _$InitialImpl;
+abstract class AuthInitial implements AuthState {
+  const factory AuthInitial() = _$AuthInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(
-          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
-      __$$LoadingImplCopyWithImpl<$Res>;
+abstract class _$$AuthLoadingImplCopyWith<$Res> {
+  factory _$$AuthLoadingImplCopyWith(
+          _$AuthLoadingImpl value, $Res Function(_$AuthLoadingImpl) then) =
+      __$$AuthLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
-    implements _$$LoadingImplCopyWith<$Res> {
-  __$$LoadingImplCopyWithImpl(
-      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+class __$$AuthLoadingImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthLoadingImpl>
+    implements _$$AuthLoadingImplCopyWith<$Res> {
+  __$$AuthLoadingImplCopyWithImpl(
+      _$AuthLoadingImpl _value, $Res Function(_$AuthLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoadingImpl implements Loading {
-  const _$LoadingImpl();
+class _$AuthLoadingImpl implements AuthLoading {
+  const _$AuthLoadingImpl();
 
   @override
   String toString() {
@@ -252,7 +252,7 @@ class _$LoadingImpl implements Loading {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
+        (other.runtimeType == runtimeType && other is _$AuthLoadingImpl);
   }
 
   @override
@@ -304,12 +304,12 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) {
     return loading(this);
   }
@@ -317,12 +317,12 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) {
     return loading?.call(this);
   }
@@ -330,12 +330,12 @@ class _$LoadingImpl implements Loading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -345,25 +345,25 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements AuthState {
-  const factory Loading() = _$LoadingImpl;
+abstract class AuthLoading implements AuthState {
+  const factory AuthLoading() = _$AuthLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$FailureImplCopyWith<$Res> {
-  factory _$$FailureImplCopyWith(
-          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+abstract class _$$AuthFailureImplCopyWith<$Res> {
+  factory _$$AuthFailureImplCopyWith(
+          _$AuthFailureImpl value, $Res Function(_$AuthFailureImpl) then) =
+      __$$AuthFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({CommonFailure failure});
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$FailureImpl>
-    implements _$$FailureImplCopyWith<$Res> {
-  __$$FailureImplCopyWithImpl(
-      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
+class __$$AuthFailureImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthFailureImpl>
+    implements _$$AuthFailureImplCopyWith<$Res> {
+  __$$AuthFailureImplCopyWithImpl(
+      _$AuthFailureImpl _value, $Res Function(_$AuthFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -371,7 +371,7 @@ class __$$FailureImplCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$FailureImpl(
+    return _then(_$AuthFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -382,8 +382,8 @@ class __$$FailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FailureImpl implements Failure {
-  const _$FailureImpl(this.failure);
+class _$AuthFailureImpl implements AuthFailure {
+  const _$AuthFailureImpl(this.failure);
 
   @override
   final CommonFailure failure;
@@ -397,7 +397,7 @@ class _$FailureImpl implements Failure {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FailureImpl &&
+            other is _$AuthFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -407,8 +407,8 @@ class _$FailureImpl implements Failure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
-      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
+  _$$AuthFailureImplCopyWith<_$AuthFailureImpl> get copyWith =>
+      __$$AuthFailureImplCopyWithImpl<_$AuthFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -456,12 +456,12 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) {
     return failure(this);
   }
@@ -469,12 +469,12 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) {
     return failure?.call(this);
   }
@@ -482,12 +482,12 @@ class _$FailureImpl implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -497,30 +497,31 @@ class _$FailureImpl implements Failure {
   }
 }
 
-abstract class Failure implements AuthState {
-  const factory Failure(final CommonFailure failure) = _$FailureImpl;
+abstract class AuthFailure implements AuthState {
+  const factory AuthFailure(final CommonFailure failure) = _$AuthFailureImpl;
 
   CommonFailure get failure;
   @JsonKey(ignore: true)
-  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+  _$$AuthFailureImplCopyWith<_$AuthFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CreateUserSuccessImplCopyWith<$Res> {
-  factory _$$CreateUserSuccessImplCopyWith(_$CreateUserSuccessImpl value,
-          $Res Function(_$CreateUserSuccessImpl) then) =
-      __$$CreateUserSuccessImplCopyWithImpl<$Res>;
+abstract class _$$AuthCreateUserSuccessImplCopyWith<$Res> {
+  factory _$$AuthCreateUserSuccessImplCopyWith(
+          _$AuthCreateUserSuccessImpl value,
+          $Res Function(_$AuthCreateUserSuccessImpl) then) =
+      __$$AuthCreateUserSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$CreateUserSuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$CreateUserSuccessImpl>
-    implements _$$CreateUserSuccessImplCopyWith<$Res> {
-  __$$CreateUserSuccessImplCopyWithImpl(_$CreateUserSuccessImpl _value,
-      $Res Function(_$CreateUserSuccessImpl) _then)
+class __$$AuthCreateUserSuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthCreateUserSuccessImpl>
+    implements _$$AuthCreateUserSuccessImplCopyWith<$Res> {
+  __$$AuthCreateUserSuccessImplCopyWithImpl(_$AuthCreateUserSuccessImpl _value,
+      $Res Function(_$AuthCreateUserSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -528,7 +529,7 @@ class __$$CreateUserSuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$CreateUserSuccessImpl(
+    return _then(_$AuthCreateUserSuccessImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -539,8 +540,8 @@ class __$$CreateUserSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateUserSuccessImpl implements CreateUserSuccess {
-  const _$CreateUserSuccessImpl(this.message);
+class _$AuthCreateUserSuccessImpl implements AuthCreateUserSuccess {
+  const _$AuthCreateUserSuccessImpl(this.message);
 
   @override
   final String message;
@@ -554,7 +555,7 @@ class _$CreateUserSuccessImpl implements CreateUserSuccess {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateUserSuccessImpl &&
+            other is _$AuthCreateUserSuccessImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -564,9 +565,9 @@ class _$CreateUserSuccessImpl implements CreateUserSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateUserSuccessImplCopyWith<_$CreateUserSuccessImpl> get copyWith =>
-      __$$CreateUserSuccessImplCopyWithImpl<_$CreateUserSuccessImpl>(
-          this, _$identity);
+  _$$AuthCreateUserSuccessImplCopyWith<_$AuthCreateUserSuccessImpl>
+      get copyWith => __$$AuthCreateUserSuccessImplCopyWithImpl<
+          _$AuthCreateUserSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -614,12 +615,12 @@ class _$CreateUserSuccessImpl implements CreateUserSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) {
     return createUserSuccess(this);
   }
@@ -627,12 +628,12 @@ class _$CreateUserSuccessImpl implements CreateUserSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) {
     return createUserSuccess?.call(this);
   }
@@ -640,12 +641,12 @@ class _$CreateUserSuccessImpl implements CreateUserSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) {
     if (createUserSuccess != null) {
@@ -655,36 +656,36 @@ class _$CreateUserSuccessImpl implements CreateUserSuccess {
   }
 }
 
-abstract class CreateUserSuccess implements AuthState {
-  const factory CreateUserSuccess(final String message) =
-      _$CreateUserSuccessImpl;
+abstract class AuthCreateUserSuccess implements AuthState {
+  const factory AuthCreateUserSuccess(final String message) =
+      _$AuthCreateUserSuccessImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$CreateUserSuccessImplCopyWith<_$CreateUserSuccessImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$AuthCreateUserSuccessImplCopyWith<_$AuthCreateUserSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LoginUserSuccessImplCopyWith<$Res> {
-  factory _$$LoginUserSuccessImplCopyWith(_$LoginUserSuccessImpl value,
-          $Res Function(_$LoginUserSuccessImpl) then) =
-      __$$LoginUserSuccessImplCopyWithImpl<$Res>;
+abstract class _$$AuthLoginUserSuccessImplCopyWith<$Res> {
+  factory _$$AuthLoginUserSuccessImplCopyWith(_$AuthLoginUserSuccessImpl value,
+          $Res Function(_$AuthLoginUserSuccessImpl) then) =
+      __$$AuthLoginUserSuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoginUserSuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$LoginUserSuccessImpl>
-    implements _$$LoginUserSuccessImplCopyWith<$Res> {
-  __$$LoginUserSuccessImplCopyWithImpl(_$LoginUserSuccessImpl _value,
-      $Res Function(_$LoginUserSuccessImpl) _then)
+class __$$AuthLoginUserSuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthLoginUserSuccessImpl>
+    implements _$$AuthLoginUserSuccessImplCopyWith<$Res> {
+  __$$AuthLoginUserSuccessImplCopyWithImpl(_$AuthLoginUserSuccessImpl _value,
+      $Res Function(_$AuthLoginUserSuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LoginUserSuccessImpl implements LoginUserSuccess {
-  const _$LoginUserSuccessImpl();
+class _$AuthLoginUserSuccessImpl implements AuthLoginUserSuccess {
+  const _$AuthLoginUserSuccessImpl();
 
   @override
   String toString() {
@@ -694,7 +695,8 @@ class _$LoginUserSuccessImpl implements LoginUserSuccess {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginUserSuccessImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$AuthLoginUserSuccessImpl);
   }
 
   @override
@@ -746,12 +748,12 @@ class _$LoginUserSuccessImpl implements LoginUserSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) {
     return loginUserSuccess(this);
   }
@@ -759,12 +761,12 @@ class _$LoginUserSuccessImpl implements LoginUserSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) {
     return loginUserSuccess?.call(this);
   }
@@ -772,12 +774,12 @@ class _$LoginUserSuccessImpl implements LoginUserSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) {
     if (loginUserSuccess != null) {
@@ -787,25 +789,25 @@ class _$LoginUserSuccessImpl implements LoginUserSuccess {
   }
 }
 
-abstract class LoginUserSuccess implements AuthState {
-  const factory LoginUserSuccess() = _$LoginUserSuccessImpl;
+abstract class AuthLoginUserSuccess implements AuthState {
+  const factory AuthLoginUserSuccess() = _$AuthLoginUserSuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$GetDataSuccessImplCopyWith<$Res> {
-  factory _$$GetDataSuccessImplCopyWith(_$GetDataSuccessImpl value,
-          $Res Function(_$GetDataSuccessImpl) then) =
-      __$$GetDataSuccessImplCopyWithImpl<$Res>;
+abstract class _$$AuthGetDataSuccessImplCopyWith<$Res> {
+  factory _$$AuthGetDataSuccessImplCopyWith(_$AuthGetDataSuccessImpl value,
+          $Res Function(_$AuthGetDataSuccessImpl) then) =
+      __$$AuthGetDataSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({GetData getData});
 }
 
 /// @nodoc
-class __$$GetDataSuccessImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$GetDataSuccessImpl>
-    implements _$$GetDataSuccessImplCopyWith<$Res> {
-  __$$GetDataSuccessImplCopyWithImpl(
-      _$GetDataSuccessImpl _value, $Res Function(_$GetDataSuccessImpl) _then)
+class __$$AuthGetDataSuccessImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthGetDataSuccessImpl>
+    implements _$$AuthGetDataSuccessImplCopyWith<$Res> {
+  __$$AuthGetDataSuccessImplCopyWithImpl(_$AuthGetDataSuccessImpl _value,
+      $Res Function(_$AuthGetDataSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -813,7 +815,7 @@ class __$$GetDataSuccessImplCopyWithImpl<$Res>
   $Res call({
     Object? getData = null,
   }) {
-    return _then(_$GetDataSuccessImpl(
+    return _then(_$AuthGetDataSuccessImpl(
       null == getData
           ? _value.getData
           : getData // ignore: cast_nullable_to_non_nullable
@@ -824,8 +826,8 @@ class __$$GetDataSuccessImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetDataSuccessImpl implements GetDataSuccess {
-  const _$GetDataSuccessImpl(this.getData);
+class _$AuthGetDataSuccessImpl implements AuthGetDataSuccess {
+  const _$AuthGetDataSuccessImpl(this.getData);
 
   @override
   final GetData getData;
@@ -839,7 +841,7 @@ class _$GetDataSuccessImpl implements GetDataSuccess {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetDataSuccessImpl &&
+            other is _$AuthGetDataSuccessImpl &&
             (identical(other.getData, getData) || other.getData == getData));
   }
 
@@ -849,8 +851,8 @@ class _$GetDataSuccessImpl implements GetDataSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetDataSuccessImplCopyWith<_$GetDataSuccessImpl> get copyWith =>
-      __$$GetDataSuccessImplCopyWithImpl<_$GetDataSuccessImpl>(
+  _$$AuthGetDataSuccessImplCopyWith<_$AuthGetDataSuccessImpl> get copyWith =>
+      __$$AuthGetDataSuccessImplCopyWithImpl<_$AuthGetDataSuccessImpl>(
           this, _$identity);
 
   @override
@@ -899,12 +901,12 @@ class _$GetDataSuccessImpl implements GetDataSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loading value) loading,
-    required TResult Function(Failure value) failure,
-    required TResult Function(CreateUserSuccess value) createUserSuccess,
-    required TResult Function(LoginUserSuccess value) loginUserSuccess,
-    required TResult Function(GetDataSuccess value) getDataSuccess,
+    required TResult Function(AuthInitial value) initial,
+    required TResult Function(AuthLoading value) loading,
+    required TResult Function(AuthFailure value) failure,
+    required TResult Function(AuthCreateUserSuccess value) createUserSuccess,
+    required TResult Function(AuthLoginUserSuccess value) loginUserSuccess,
+    required TResult Function(AuthGetDataSuccess value) getDataSuccess,
   }) {
     return getDataSuccess(this);
   }
@@ -912,12 +914,12 @@ class _$GetDataSuccessImpl implements GetDataSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loading value)? loading,
-    TResult? Function(Failure value)? failure,
-    TResult? Function(CreateUserSuccess value)? createUserSuccess,
-    TResult? Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult? Function(GetDataSuccess value)? getDataSuccess,
+    TResult? Function(AuthInitial value)? initial,
+    TResult? Function(AuthLoading value)? loading,
+    TResult? Function(AuthFailure value)? failure,
+    TResult? Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult? Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult? Function(AuthGetDataSuccess value)? getDataSuccess,
   }) {
     return getDataSuccess?.call(this);
   }
@@ -925,12 +927,12 @@ class _$GetDataSuccessImpl implements GetDataSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loading value)? loading,
-    TResult Function(Failure value)? failure,
-    TResult Function(CreateUserSuccess value)? createUserSuccess,
-    TResult Function(LoginUserSuccess value)? loginUserSuccess,
-    TResult Function(GetDataSuccess value)? getDataSuccess,
+    TResult Function(AuthInitial value)? initial,
+    TResult Function(AuthLoading value)? loading,
+    TResult Function(AuthFailure value)? failure,
+    TResult Function(AuthCreateUserSuccess value)? createUserSuccess,
+    TResult Function(AuthLoginUserSuccess value)? loginUserSuccess,
+    TResult Function(AuthGetDataSuccess value)? getDataSuccess,
     required TResult orElse(),
   }) {
     if (getDataSuccess != null) {
@@ -940,11 +942,12 @@ class _$GetDataSuccessImpl implements GetDataSuccess {
   }
 }
 
-abstract class GetDataSuccess implements AuthState {
-  const factory GetDataSuccess(final GetData getData) = _$GetDataSuccessImpl;
+abstract class AuthGetDataSuccess implements AuthState {
+  const factory AuthGetDataSuccess(final GetData getData) =
+      _$AuthGetDataSuccessImpl;
 
   GetData get getData;
   @JsonKey(ignore: true)
-  _$$GetDataSuccessImplCopyWith<_$GetDataSuccessImpl> get copyWith =>
+  _$$AuthGetDataSuccessImplCopyWith<_$AuthGetDataSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

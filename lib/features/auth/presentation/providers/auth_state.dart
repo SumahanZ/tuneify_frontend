@@ -5,10 +5,11 @@ part 'auth_state.freezed.dart';
 
 @freezed
 sealed class AuthState with _$AuthState {
-  const factory AuthState.initial() = Initial;
-  const factory AuthState.loading() = Loading;
-  const factory AuthState.failure(CommonFailure failure) = Failure;
-  const factory AuthState.createUserSuccess(String message) = CreateUserSuccess;
-  const factory AuthState.loginUserSuccess() = LoginUserSuccess;
-  const factory AuthState.getDataSuccess(GetData getData) = GetDataSuccess;
+  const factory AuthState.initial() = AuthInitial;
+  const factory AuthState.loading() = AuthLoading;
+  const factory AuthState.failure(CommonFailure failure) = AuthFailure;
+  const factory AuthState.createUserSuccess(String message) =
+      AuthCreateUserSuccess;
+  const factory AuthState.loginUserSuccess() = AuthLoginUserSuccess;
+  const factory AuthState.getDataSuccess(GetData getData) = AuthGetDataSuccess;
 }

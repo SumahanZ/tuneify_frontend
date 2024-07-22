@@ -7,7 +7,7 @@ import 'package:tuneify/core/exception/exception.dart';
 final sharedPrefProvider = Provider((ref) => SharedPref());
 
 class SharedPref {
-  dynamic read(String key) async {
+  Future<dynamic> read(String key) async {
     final prefs = await SharedPreferences.getInstance();
 
     if (prefs.getString(key) == "" || prefs.getString(key) == null) {

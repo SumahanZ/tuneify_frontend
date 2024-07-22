@@ -7,8 +7,8 @@ import 'package:tuneify/features/auth/presentation/providers/auth_notifier.dart'
 import 'package:tuneify/features/auth/presentation/providers/auth_state.dart';
 import 'package:tuneify/features/auth/presentation/views/signup_page.dart';
 import 'package:tuneify/features/auth/presentation/widgets/auth_gradient_button.dart';
-import 'package:tuneify/features/auth/presentation/widgets/custom_textfield.dart';
-import 'package:tuneify/test_page.dart';
+import 'package:tuneify/core/widgets/custom_textfield.dart';
+import 'package:tuneify/features/song/presentation/views/home_page.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -34,12 +34,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final authState = ref.watch(authNotifierProvider);
     ref.listen(authNotifierProvider, (previous, next) {
       switch (next) {
-        case Failure(failure: var failure):
+        case AuthFailure(failure: var failure):
           showSnackbar(text: failure.message, context: context);
-        case LoginUserSuccess():
+        case AuthLoginUserSuccess():
           Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
-              builder: (context) => const TestPage(),
+              builder: (context) => const HomePage(),
             ),
             (route) => false,
           );
@@ -49,7 +49,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     });
 
     return switch (authState) {
-      Loading() => const Center(child: CircularProgressIndicator()),
+      AuthLoading() => const Center(child: CircularProgressIndicator()),
       _ => Scaffold(
           appBar: AppBar(
             title: const Text("Login Page"),
