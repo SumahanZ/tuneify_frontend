@@ -7,4 +7,5 @@ class APIConstants {
 
   //Songs Endpoints
   static const uploadSongEndpoint = "/song/upload-song";
+  static const getLatestSongsEndpoint = "/song/list";
 }

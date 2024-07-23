@@ -48,3 +48,13 @@ class SharedPreferenceFailure extends CommonFailure {
     );
   }
 }
+
+class HiveFailure extends CommonFailure {
+  const HiveFailure({required super.errorMessage});
+
+  factory HiveFailure.fromException(CommonException exception) {
+    return HiveFailure(
+      errorMessage: exception.message,
+    );
+  }
+}

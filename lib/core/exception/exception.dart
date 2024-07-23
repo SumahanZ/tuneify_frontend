@@ -27,3 +27,10 @@ class SharedPreferenceException extends CommonException {
     super.statusCode,
   });
 }
+
+class HiveException extends CommonException {
+  const HiveException({
+    required super.message,
+    super.statusCode,
+  });
+}

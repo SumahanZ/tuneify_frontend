@@ -22,7 +22,7 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
 
-  Future<void> getData(Map<String, dynamic> tokens, SharedPref pref);
+  Future<void> getData(Map<String, dynamic> tokens, SharedPrefService pref);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -51,7 +51,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ServerException(
-          message: response.body,
+          message: (jsonDecode(response.body) as Map<String, dynamic>)["msg"],
           statusCode: response.statusCode,
         );
       }
@@ -81,7 +81,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ServerException(
-          message: response.body,
+          message: (jsonDecode(response.body) as Map<String, dynamic>)["msg"],
           statusCode: response.statusCode,
         );
       }
@@ -95,7 +95,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> getData(Map<String, dynamic> tokens, SharedPref pref) async {
+  Future<void> getData(
+    Map<String, dynamic> tokens,
+    SharedPrefService pref,
+  ) async {
     try {
       final response = await _client.get(
         Uri.parse("${APIConstants.baseURL}${APIConstants.getDataEndpoint}"),
@@ -108,7 +111,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw ServerException(
-          message: response.body,
+          message: (jsonDecode(response.body) as Map<String, dynamic>)["msg"],
           statusCode: response.statusCode,
         );
       }

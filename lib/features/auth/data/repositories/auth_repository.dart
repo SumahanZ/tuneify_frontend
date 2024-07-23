@@ -20,7 +20,7 @@ final authRepositoryProvider = Provider(
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
-  final SharedPref _sharedPref;
+  final SharedPrefService _sharedPref;
 
   AuthRepositoryImpl(
     this._authRemoteDataSource,

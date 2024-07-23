@@ -11,44 +11,25 @@ class SongModel extends SongEntity {
     required super.songURL,
     required super.hexCode,
   });
-
-  SongModel copyWith({
-    String? id,
-    String? name,
-    String? artist,
-    String? thumbnailURL,
-    String? songURL,
-    String? hexCode,
-  }) {
-    return SongModel(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      artist: artist ?? this.artist,
-      thumbnailURL: thumbnailURL ?? this.thumbnailURL,
-      songURL: songURL ?? this.songURL,
-      hexCode: hexCode ?? this.hexCode,
-    );
-  }
-
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
       'name': name,
       'artist': artist,
       'thumbnailURL': thumbnailURL,
-      'songURL': songURL,
+      'audioURL': songURL,
       'hexCode': hexCode,
     };
   }
 
   factory SongModel.fromMap(Map<String, dynamic> map) {
     return SongModel(
-      id: map['id'] as String,
-      name: map['name'] as String,
-      artist: map['artist'] as String,
-      thumbnailURL: map['thumbnailURL'] as String,
-      songURL: map['songURL'] as String,
-      hexCode: map['hexCode'] as String,
+      id: map['_id'] ?? "",
+      name: map['name'] ?? "",
+      artist: map['artist'] ?? "",
+      thumbnailURL: map['thumbnailURL'] ?? "",
+      songURL: map['audioURL'] ?? "",
+      hexCode: map['hexCode'] ?? "",
     );
   }
 
