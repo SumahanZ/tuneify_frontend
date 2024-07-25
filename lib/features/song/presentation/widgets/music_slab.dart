@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tuneify/core/providers/current_user_provider.dart';
 import 'package:tuneify/core/utils/utils.dart';
 import 'package:tuneify/features/song/presentation/providers/current_song_notifier.dart';
 import 'package:tuneify/core/theme/app_pallete.dart';
+import 'package:tuneify/features/song/presentation/providers/song_notifier.dart';
 import 'package:tuneify/features/song/presentation/views/music_player_page.dart';
+import 'package:collection/collection.dart';
 
 class MusicSlab extends ConsumerWidget {
   const MusicSlab({super.key});
@@ -13,6 +16,7 @@ class MusicSlab extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentSong = ref.watch(currentSongNotifierProvider);
     final currentSongNotifier = ref.read(currentSongNotifierProvider.notifier);
+    final currentUser = ref.watch(currentUserProvider);
 
     if (currentSong == null) {
       return const SizedBox.shrink();
@@ -40,7 +44,8 @@ class MusicSlab extends ConsumerWidget {
       },
       child: Stack(
         children: [
-          Container(
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
             height: 66,
             padding: const EdgeInsets.all(9),
             width: MediaQuery.of(context).size.width - 16,
@@ -94,9 +99,18 @@ class MusicSlab extends ConsumerWidget {
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        CupertinoIcons.heart_fill,
+                      onPressed: () => ref
+                          .read(songNotifierProvider.notifier)
+                          .addRemoveFavorites(currentSong.id),
+                      icon: Icon(
+                        (currentUser?.favoriteSongs.firstWhereOrNull(
+                                  (element) {
+                                    return element.song == currentSong.id;
+                                  },
+                                )) !=
+                                null
+                            ? CupertinoIcons.heart_fill
+                            : CupertinoIcons.heart,
                         color: Pallete.whiteColor,
                       ),
                     ),
@@ -114,11 +128,14 @@ class MusicSlab extends ConsumerWidget {
               ],
             ),
           ),
-          Consumer(
-            builder: (context, ref, _) {
-              final songPosition = ref.watch(currentSongPositionProvider);
+          StreamBuilder(
+            stream: currentSongNotifier.player?.positionStream,
+            builder: (context, snapshot) {
+              final songPosition = snapshot.data;
 
-              if (songPosition.isLoading) return const SizedBox();
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const SizedBox();
+              }
 
               return Positioned(
                 bottom: 0,
@@ -130,7 +147,7 @@ class MusicSlab extends ConsumerWidget {
                   ),
                   height: 3,
                   width: countSongProgress(
-                        currentSongDuration: songPosition.asData?.value,
+                        currentSongDuration: songPosition,
                         songWholeDuration: currentSongNotifier.player?.duration,
                       ) *
                       (MediaQuery.of(context).size.width - 32),

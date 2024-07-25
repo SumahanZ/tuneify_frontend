@@ -5,18 +5,18 @@ import 'package:tuneify/features/song/data/repositories/song_repository.dart';
 import 'package:tuneify/features/song/domain/entities/song_entity.dart';
 import 'package:tuneify/features/song/domain/repositories/song_repository.dart';
 
-final uploadLocalSongsProvider = Provider(
-  (ref) => UploadLocalSongsUseCase(ref.watch(songRepositoryProvider)),
+final getUserFavoritesProvider = Provider(
+  (ref) => GetUsersFavoriteUseCase(ref.watch(songRepositoryProvider)),
 );
 
-final class UploadLocalSongsUseCase
-    implements UseCase<Result<void>, SongEntity> {
+final class GetUsersFavoriteUseCase
+    implements UseCaseNoParam<ResultFuture<List<SongEntity>>> {
   final SongRepository _songRepository;
 
-  UploadLocalSongsUseCase(this._songRepository);
+  GetUsersFavoriteUseCase(this._songRepository);
 
   @override
-  Result<void> call(SongEntity param) {
-    return _songRepository.uploadLocalSongs(param);
+  ResultFuture<List<SongEntity>> call() async {
+    return _songRepository.getSongFavorites();
   }
 }

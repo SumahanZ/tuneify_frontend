@@ -23,6 +23,7 @@ mixin _$SongState {
     required TResult Function(CommonFailure failure) failure,
     required TResult Function(SongEntity uploadedSong) uploadSuccess,
     required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$SongState {
     TResult? Function(CommonFailure failure)? failure,
     TResult? Function(SongEntity uploadedSong)? uploadSuccess,
     TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$SongState {
     TResult Function(CommonFailure failure)? failure,
     TResult Function(SongEntity uploadedSong)? uploadSuccess,
     TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,8 @@ mixin _$SongState {
     required TResult Function(SongFailure value) failure,
     required TResult Function(SongUploadSuccess value) uploadSuccess,
     required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +65,8 @@ mixin _$SongState {
     TResult? Function(SongFailure value)? failure,
     TResult? Function(SongUploadSuccess value)? uploadSuccess,
     TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +76,7 @@ mixin _$SongState {
     TResult Function(SongFailure value)? failure,
     TResult Function(SongUploadSuccess value)? uploadSuccess,
     TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +142,7 @@ class _$SongInitialImpl implements SongInitial {
     required TResult Function(CommonFailure failure) failure,
     required TResult Function(SongEntity uploadedSong) uploadSuccess,
     required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
   }) {
     return initial();
   }
@@ -146,6 +155,7 @@ class _$SongInitialImpl implements SongInitial {
     TResult? Function(CommonFailure failure)? failure,
     TResult? Function(SongEntity uploadedSong)? uploadSuccess,
     TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
   }) {
     return initial?.call();
   }
@@ -158,6 +168,7 @@ class _$SongInitialImpl implements SongInitial {
     TResult Function(CommonFailure failure)? failure,
     TResult Function(SongEntity uploadedSong)? uploadSuccess,
     TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -174,6 +185,8 @@ class _$SongInitialImpl implements SongInitial {
     required TResult Function(SongFailure value) failure,
     required TResult Function(SongUploadSuccess value) uploadSuccess,
     required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
   }) {
     return initial(this);
   }
@@ -186,6 +199,8 @@ class _$SongInitialImpl implements SongInitial {
     TResult? Function(SongFailure value)? failure,
     TResult? Function(SongUploadSuccess value)? uploadSuccess,
     TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
   }) {
     return initial?.call(this);
   }
@@ -198,6 +213,7 @@ class _$SongInitialImpl implements SongInitial {
     TResult Function(SongFailure value)? failure,
     TResult Function(SongUploadSuccess value)? uploadSuccess,
     TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,6 +270,7 @@ class _$SongLoadingImpl implements SongLoading {
     required TResult Function(CommonFailure failure) failure,
     required TResult Function(SongEntity uploadedSong) uploadSuccess,
     required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
   }) {
     return loading();
   }
@@ -266,6 +283,7 @@ class _$SongLoadingImpl implements SongLoading {
     TResult? Function(CommonFailure failure)? failure,
     TResult? Function(SongEntity uploadedSong)? uploadSuccess,
     TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
   }) {
     return loading?.call();
   }
@@ -278,6 +296,7 @@ class _$SongLoadingImpl implements SongLoading {
     TResult Function(CommonFailure failure)? failure,
     TResult Function(SongEntity uploadedSong)? uploadSuccess,
     TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -294,6 +313,8 @@ class _$SongLoadingImpl implements SongLoading {
     required TResult Function(SongFailure value) failure,
     required TResult Function(SongUploadSuccess value) uploadSuccess,
     required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
   }) {
     return loading(this);
   }
@@ -306,6 +327,8 @@ class _$SongLoadingImpl implements SongLoading {
     TResult? Function(SongFailure value)? failure,
     TResult? Function(SongUploadSuccess value)? uploadSuccess,
     TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
   }) {
     return loading?.call(this);
   }
@@ -318,6 +341,7 @@ class _$SongLoadingImpl implements SongLoading {
     TResult Function(SongFailure value)? failure,
     TResult Function(SongUploadSuccess value)? uploadSuccess,
     TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -400,6 +424,7 @@ class _$SongFailureImpl implements SongFailure {
     required TResult Function(CommonFailure failure) failure,
     required TResult Function(SongEntity uploadedSong) uploadSuccess,
     required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
   }) {
     return failure(this.failure);
   }
@@ -412,6 +437,7 @@ class _$SongFailureImpl implements SongFailure {
     TResult? Function(CommonFailure failure)? failure,
     TResult? Function(SongEntity uploadedSong)? uploadSuccess,
     TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
   }) {
     return failure?.call(this.failure);
   }
@@ -424,6 +450,7 @@ class _$SongFailureImpl implements SongFailure {
     TResult Function(CommonFailure failure)? failure,
     TResult Function(SongEntity uploadedSong)? uploadSuccess,
     TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -440,6 +467,8 @@ class _$SongFailureImpl implements SongFailure {
     required TResult Function(SongFailure value) failure,
     required TResult Function(SongUploadSuccess value) uploadSuccess,
     required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
   }) {
     return failure(this);
   }
@@ -452,6 +481,8 @@ class _$SongFailureImpl implements SongFailure {
     TResult? Function(SongFailure value)? failure,
     TResult? Function(SongUploadSuccess value)? uploadSuccess,
     TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
   }) {
     return failure?.call(this);
   }
@@ -464,6 +495,7 @@ class _$SongFailureImpl implements SongFailure {
     TResult Function(SongFailure value)? failure,
     TResult Function(SongUploadSuccess value)? uploadSuccess,
     TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -553,6 +585,7 @@ class _$SongUploadSuccessImpl implements SongUploadSuccess {
     required TResult Function(CommonFailure failure) failure,
     required TResult Function(SongEntity uploadedSong) uploadSuccess,
     required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
   }) {
     return uploadSuccess(uploadedSong);
   }
@@ -565,6 +598,7 @@ class _$SongUploadSuccessImpl implements SongUploadSuccess {
     TResult? Function(CommonFailure failure)? failure,
     TResult? Function(SongEntity uploadedSong)? uploadSuccess,
     TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
   }) {
     return uploadSuccess?.call(uploadedSong);
   }
@@ -577,6 +611,7 @@ class _$SongUploadSuccessImpl implements SongUploadSuccess {
     TResult Function(CommonFailure failure)? failure,
     TResult Function(SongEntity uploadedSong)? uploadSuccess,
     TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -593,6 +628,8 @@ class _$SongUploadSuccessImpl implements SongUploadSuccess {
     required TResult Function(SongFailure value) failure,
     required TResult Function(SongUploadSuccess value) uploadSuccess,
     required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
   }) {
     return uploadSuccess(this);
   }
@@ -605,6 +642,8 @@ class _$SongUploadSuccessImpl implements SongUploadSuccess {
     TResult? Function(SongFailure value)? failure,
     TResult? Function(SongUploadSuccess value)? uploadSuccess,
     TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
   }) {
     return uploadSuccess?.call(this);
   }
@@ -617,6 +656,7 @@ class _$SongUploadSuccessImpl implements SongUploadSuccess {
     TResult Function(SongFailure value)? failure,
     TResult Function(SongUploadSuccess value)? uploadSuccess,
     TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (uploadSuccess != null) {
@@ -712,6 +752,7 @@ class _$SongFetchSuccessImpl implements SongFetchSuccess {
     required TResult Function(CommonFailure failure) failure,
     required TResult Function(SongEntity uploadedSong) uploadSuccess,
     required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
   }) {
     return fetchSuccess(songs);
   }
@@ -724,6 +765,7 @@ class _$SongFetchSuccessImpl implements SongFetchSuccess {
     TResult? Function(CommonFailure failure)? failure,
     TResult? Function(SongEntity uploadedSong)? uploadSuccess,
     TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
   }) {
     return fetchSuccess?.call(songs);
   }
@@ -736,6 +778,7 @@ class _$SongFetchSuccessImpl implements SongFetchSuccess {
     TResult Function(CommonFailure failure)? failure,
     TResult Function(SongEntity uploadedSong)? uploadSuccess,
     TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (fetchSuccess != null) {
@@ -752,6 +795,8 @@ class _$SongFetchSuccessImpl implements SongFetchSuccess {
     required TResult Function(SongFailure value) failure,
     required TResult Function(SongUploadSuccess value) uploadSuccess,
     required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
   }) {
     return fetchSuccess(this);
   }
@@ -764,6 +809,8 @@ class _$SongFetchSuccessImpl implements SongFetchSuccess {
     TResult? Function(SongFailure value)? failure,
     TResult? Function(SongUploadSuccess value)? uploadSuccess,
     TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
   }) {
     return fetchSuccess?.call(this);
   }
@@ -776,6 +823,7 @@ class _$SongFetchSuccessImpl implements SongFetchSuccess {
     TResult Function(SongFailure value)? failure,
     TResult Function(SongUploadSuccess value)? uploadSuccess,
     TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
     required TResult orElse(),
   }) {
     if (fetchSuccess != null) {
@@ -793,4 +841,167 @@ abstract class SongFetchSuccess implements SongState {
   @JsonKey(ignore: true)
   _$$SongFetchSuccessImplCopyWith<_$SongFetchSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SongRemoveFavoriteSuccessImplCopyWith<$Res> {
+  factory _$$SongRemoveFavoriteSuccessImplCopyWith(
+          _$SongRemoveFavoriteSuccessImpl value,
+          $Res Function(_$SongRemoveFavoriteSuccessImpl) then) =
+      __$$SongRemoveFavoriteSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$SongRemoveFavoriteSuccessImplCopyWithImpl<$Res>
+    extends _$SongStateCopyWithImpl<$Res, _$SongRemoveFavoriteSuccessImpl>
+    implements _$$SongRemoveFavoriteSuccessImplCopyWith<$Res> {
+  __$$SongRemoveFavoriteSuccessImplCopyWithImpl(
+      _$SongRemoveFavoriteSuccessImpl _value,
+      $Res Function(_$SongRemoveFavoriteSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$SongRemoveFavoriteSuccessImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SongRemoveFavoriteSuccessImpl implements SongRemoveFavoriteSuccess {
+  const _$SongRemoveFavoriteSuccessImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'SongState.addRemoveFavoriteSuccess(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SongRemoveFavoriteSuccessImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SongRemoveFavoriteSuccessImplCopyWith<_$SongRemoveFavoriteSuccessImpl>
+      get copyWith => __$$SongRemoveFavoriteSuccessImplCopyWithImpl<
+          _$SongRemoveFavoriteSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(CommonFailure failure) failure,
+    required TResult Function(SongEntity uploadedSong) uploadSuccess,
+    required TResult Function(List<SongEntity> songs) fetchSuccess,
+    required TResult Function(String message) addRemoveFavoriteSuccess,
+  }) {
+    return addRemoveFavoriteSuccess(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(CommonFailure failure)? failure,
+    TResult? Function(SongEntity uploadedSong)? uploadSuccess,
+    TResult? Function(List<SongEntity> songs)? fetchSuccess,
+    TResult? Function(String message)? addRemoveFavoriteSuccess,
+  }) {
+    return addRemoveFavoriteSuccess?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(CommonFailure failure)? failure,
+    TResult Function(SongEntity uploadedSong)? uploadSuccess,
+    TResult Function(List<SongEntity> songs)? fetchSuccess,
+    TResult Function(String message)? addRemoveFavoriteSuccess,
+    required TResult orElse(),
+  }) {
+    if (addRemoveFavoriteSuccess != null) {
+      return addRemoveFavoriteSuccess(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SongInitial value) initial,
+    required TResult Function(SongLoading value) loading,
+    required TResult Function(SongFailure value) failure,
+    required TResult Function(SongUploadSuccess value) uploadSuccess,
+    required TResult Function(SongFetchSuccess value) fetchSuccess,
+    required TResult Function(SongRemoveFavoriteSuccess value)
+        addRemoveFavoriteSuccess,
+  }) {
+    return addRemoveFavoriteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SongInitial value)? initial,
+    TResult? Function(SongLoading value)? loading,
+    TResult? Function(SongFailure value)? failure,
+    TResult? Function(SongUploadSuccess value)? uploadSuccess,
+    TResult? Function(SongFetchSuccess value)? fetchSuccess,
+    TResult? Function(SongRemoveFavoriteSuccess value)?
+        addRemoveFavoriteSuccess,
+  }) {
+    return addRemoveFavoriteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SongInitial value)? initial,
+    TResult Function(SongLoading value)? loading,
+    TResult Function(SongFailure value)? failure,
+    TResult Function(SongUploadSuccess value)? uploadSuccess,
+    TResult Function(SongFetchSuccess value)? fetchSuccess,
+    TResult Function(SongRemoveFavoriteSuccess value)? addRemoveFavoriteSuccess,
+    required TResult orElse(),
+  }) {
+    if (addRemoveFavoriteSuccess != null) {
+      return addRemoveFavoriteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SongRemoveFavoriteSuccess implements SongState {
+  const factory SongRemoveFavoriteSuccess(final String message) =
+      _$SongRemoveFavoriteSuccessImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$SongRemoveFavoriteSuccessImplCopyWith<_$SongRemoveFavoriteSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

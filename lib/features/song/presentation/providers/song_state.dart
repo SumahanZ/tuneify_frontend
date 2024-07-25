@@ -12,4 +12,6 @@ sealed class SongState with _$SongState {
       SongUploadSuccess;
   const factory SongState.fetchSuccess(List<SongEntity> songs) =
       SongFetchSuccess;
+  const factory SongState.addRemoveFavoriteSuccess(String message) =
+      SongRemoveFavoriteSuccess;
 }

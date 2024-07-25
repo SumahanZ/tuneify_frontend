@@ -18,7 +18,8 @@ class HiveService {
     required String boxName,
     required T data,
   }) {
-    final box = Hive.box<T>(name: boxName);
+    final box = Hive.box(name: boxName);
+
     box.put(key, data);
   }
 

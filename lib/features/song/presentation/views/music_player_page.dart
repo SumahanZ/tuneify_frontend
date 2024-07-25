@@ -1,11 +1,13 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tuneify/core/providers/current_user_provider.dart';
 import 'package:tuneify/core/theme/app_pallete.dart';
 import 'package:tuneify/core/utils/utils.dart';
 import 'package:tuneify/features/song/presentation/providers/current_song_notifier.dart';
+import 'package:tuneify/features/song/presentation/providers/song_notifier.dart';
 import 'package:tuneify/features/song/presentation/widgets/music_player_slider.dart';
 
 class MusicPlayerPage extends ConsumerWidget {
@@ -15,6 +17,8 @@ class MusicPlayerPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentSong = ref.watch(currentSongNotifierProvider);
     final currentSongNotifier = ref.read(currentSongNotifierProvider.notifier);
+    final currentUser = ref.watch(currentUserProvider);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       decoration: BoxDecoration(
@@ -98,33 +102,42 @@ class MusicPlayerPage extends ConsumerWidget {
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            CupertinoIcons.heart,
+                          onPressed: () => ref
+                              .read(songNotifierProvider.notifier)
+                              .addRemoveFavorites(currentSong.id),
+                          icon: Icon(
+                            (currentUser?.favoriteSongs.firstWhereOrNull(
+                                      (element) {
+                                        return element.song == currentSong.id;
+                                      },
+                                    )) !=
+                                    null
+                                ? CupertinoIcons.heart_fill
+                                : CupertinoIcons.heart,
                             color: Pallete.whiteColor,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Consumer(
-                    builder: (context, ref, child) {
-                      final songPosition =
-                          ref.watch(currentSongPositionProvider);
+                  StreamBuilder(
+                    stream: currentSongNotifier.player?.positionStream,
+                    builder: (context, snapshot) {
+                      final songPosition = snapshot.data;
 
                       return Column(
                         children: [
                           MusicSlider(
                             songProgress: countSongProgress(
-                              currentSongDuration: songPosition.value,
+                              currentSongDuration: songPosition,
                               songWholeDuration:
-                                  currentSongNotifier.player!.duration,
+                                  currentSongNotifier.player?.duration,
                             ),
                           ),
                           Row(
                             children: [
                               Text(
-                                "${songPosition.value!.inMinutes}:${(songPosition.value!.inSeconds % 60).toString().padLeft(2, '0')}",
+                                "${songPosition!.inMinutes}:${(songPosition.inSeconds % 60).toString().padLeft(2, '0')}",
                                 style: const TextStyle(
                                   color: Pallete.subtitleText,
                                   fontSize: 13,

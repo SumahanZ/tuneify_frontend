@@ -6,7 +6,6 @@ import 'package:tuneify/core/providers/shared_preference_provider.dart';
 import 'package:tuneify/core/typealias/typealias.dart';
 import 'package:tuneify/features/song/data/datasources/song_local_datasource.dart';
 import 'package:tuneify/features/song/data/datasources/song_remote_datasource.dart';
-import 'package:tuneify/features/song/data/models/song_model.dart';
 import 'package:tuneify/features/song/domain/entities/song_entity.dart';
 import 'package:tuneify/features/song/domain/repositories/song_repository.dart';
 
@@ -71,7 +70,7 @@ class SongRepositoryImpl implements SongRepository {
   }
 
   @override
-  Result<void> uploadLocalSongs(SongModel song) {
+  Result<void> uploadLocalSongs(SongEntity song) {
     try {
       _songLocalDataSource.uploadLocalSong(song);
       return const Right(null);
@@ -88,6 +87,36 @@ class SongRepositoryImpl implements SongRepository {
       return Right(songs);
     } on HiveException catch (err) {
       return Left(HiveFailure.fromException(err));
+    }
+  }
+
+  @override
+  Future<Result<String>> addRemoveFavorite(String songId) async {
+    try {
+      final tokens = await _sharedPref.read("tokens");
+      final message =
+          await _songRemoteDataSource.addRemoveFavorites(tokens, songId);
+
+      return Right(message);
+    } on ServerException catch (err) {
+      return Left(ServerFailure.fromException(err));
+    } on UnknownException catch (err) {
+      return Left(UnknownFailure.fromException(err));
+    }
+  }
+
+  @override
+  Future<Result<List<SongEntity>>> getSongFavorites() async {
+    try {
+      final tokens = await _sharedPref.read("tokens");
+      final uploadedSongs =
+          await _songRemoteDataSource.getSongFavorites(tokens);
+
+      return Right(uploadedSongs);
+    } on ServerException catch (err) {
+      return Left(ServerFailure.fromException(err));
+    } on UnknownException catch (err) {
+      return Left(UnknownFailure.fromException(err));
     }
   }
 }

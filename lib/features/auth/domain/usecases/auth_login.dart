@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tuneify/core/typealias/typealias.dart';
 import 'package:tuneify/core/usecase/use_case.dart';
 import 'package:tuneify/features/auth/data/repositories/auth_repository.dart';
+import 'package:tuneify/features/auth/domain/entities/user_entity.dart';
 import 'package:tuneify/features/auth/domain/repositories/auth_repository.dart';
 
 final authLoginProvider =
@@ -13,7 +14,7 @@ class AuthLoginUseCase extends UseCase<ResultFuture<void>, AuthLoginParams> {
   AuthLoginUseCase(this._authRepository);
 
   @override
-  ResultFuture<void> call(AuthLoginParams params) {
+  ResultFuture<UserEntity> call(AuthLoginParams params) {
     return _authRepository.login(
       email: params.email,
       password: params.password,

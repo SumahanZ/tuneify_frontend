@@ -1,4 +1,5 @@
 import 'package:tuneify/core/typealias/typealias.dart';
+import 'package:tuneify/features/auth/domain/entities/user_entity.dart';
 
 abstract class AuthRepository {
   ResultFuture<void> signUp({
@@ -7,10 +8,10 @@ abstract class AuthRepository {
     required String password,
   });
 
-  ResultFuture<void> login({
+  ResultFuture<UserEntity> login({
     required String email,
     required String password,
   });
 
-  ResultFuture<void> getData();
+  ResultFuture<UserEntity> getData();
 }

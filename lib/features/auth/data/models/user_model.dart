@@ -1,33 +1,32 @@
 import 'dart:convert';
+
 import 'package:tuneify/features/auth/domain/entities/user_entity.dart';
+import 'package:tuneify/features/song/data/models/fav_song_model.dart';
 
 class UserModel extends UserEntity {
   const UserModel({
-    required super.name,
-    required super.email,
     required super.id,
+    required super.email,
+    required super.name,
+    required super.favoriteSongs,
   });
-
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'name': name,
-      'email': email,
-      '_id': id,
-    };
-  }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      name: map['name'] as String,
-      email: map['email'] as String,
-      id: map['_id'] as String,
+      id: map["user"]['_id'] ?? "",
+      email: map["user"]['email'] ?? "",
+      name: map["user"]['name'] ?? "",
+      favoriteSongs: List<FavoriteModel>.from(
+        (map['favorites'] as List<dynamic>).map<FavoriteModel>(
+          (x) => FavoriteModel.fromMap(x),
+        ),
+      ),
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory UserModel.fromJson(String source) =>
-      UserModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory UserModel.fromJson(String source) {
+    return UserModel.fromMap(json.decode(source));
+  }
 
   @override
   bool get stringify => true;

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 class SongEntity extends Equatable {
@@ -34,6 +36,19 @@ class SongEntity extends Equatable {
       hexCode: hexCode ?? this.hexCode,
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      '_id': id,
+      'name': name,
+      'artist': artist,
+      'thumbnailURL': thumbnailURL,
+      'audioURL': songURL,
+      'hexCode': hexCode,
+    };
+  }
+
+  String toJson() => json.encode(toMap());
 
   @override
   List<Object> get props {

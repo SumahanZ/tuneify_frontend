@@ -29,6 +29,15 @@ abstract class SongRemoteDataSource {
   Future<List<SongModel>> getLatestSongs(
     Map<String, dynamic> tokens,
   );
+
+  Future<String> addRemoveFavorites(
+    Map<String, dynamic> tokens,
+    String songId,
+  );
+
+  Future<List<SongModel>> getSongFavorites(
+    Map<String, dynamic> tokens,
+  );
 }
 
 class SongRemoteDataSourceImpl implements SongRemoteDataSource {
@@ -116,6 +125,82 @@ class SongRemoteDataSourceImpl implements SongRemoteDataSource {
           .toList();
 
       return songs;
+    } on ServerException {
+      rethrow;
+    } catch (err) {
+      throw UnknownException(message: err.toString(), statusCode: 500);
+    }
+  }
+
+  @override
+  Future<String> addRemoveFavorites(
+    Map<String, dynamic> tokens,
+    String songId,
+  ) async {
+    try {
+      final response = await _client.post(
+        Uri.parse(
+          "${APIConstants.baseURL}${APIConstants.addRemoveFavoriteEndpoint}",
+        ),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer ${tokens["accessToken"]}",
+          "x-refresh": tokens["refreshToken"],
+        },
+        body: jsonEncode({
+          "songId": songId,
+        }),
+      );
+
+      if (response.statusCode != 200 && response.statusCode != 201) {
+        throw ServerException(
+          message: (jsonDecode(response.body) as Map<String, dynamic>)["msg"],
+          statusCode: response.statusCode,
+        );
+      }
+
+      handleRefreshAccessToken(response, _sharedPref);
+
+      return jsonDecode(response.body)["msg"];
+    } on ServerException {
+      rethrow;
+    } catch (err) {
+      throw UnknownException(message: err.toString(), statusCode: 500);
+    }
+  }
+
+  @override
+  Future<List<SongModel>> getSongFavorites(
+    Map<String, dynamic> tokens,
+  ) async {
+    try {
+      final response = await _client.get(
+        Uri.parse(
+          "${APIConstants.baseURL}${APIConstants.getFavoritesEndpoint}",
+        ),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer ${tokens["accessToken"]}",
+          "x-refresh": tokens["refreshToken"],
+        },
+      );
+
+      if (response.statusCode != 200 && response.statusCode != 201) {
+        throw ServerException(
+          message: (jsonDecode(response.body) as Map<String, dynamic>)["msg"],
+          statusCode: response.statusCode,
+        );
+      }
+
+      handleRefreshAccessToken(response, _sharedPref);
+
+      final favoriteSongs = (jsonDecode(response.body) as List)
+          .map((value) => SongModel.fromMapFavorite(value))
+          .toList();
+
+      print(favoriteSongs);
+
+      return favoriteSongs;
     } on ServerException {
       rethrow;
     } catch (err) {

@@ -11,16 +11,6 @@ class SongModel extends SongEntity {
     required super.songURL,
     required super.hexCode,
   });
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'id': id,
-      'name': name,
-      'artist': artist,
-      'thumbnailURL': thumbnailURL,
-      'audioURL': songURL,
-      'hexCode': hexCode,
-    };
-  }
 
   factory SongModel.fromMap(Map<String, dynamic> map) {
     return SongModel(
@@ -33,10 +23,22 @@ class SongModel extends SongEntity {
     );
   }
 
-  String toJson() => json.encode(toMap());
+  factory SongModel.fromMapFavorite(Map<String, dynamic> map) {
+    return SongModel(
+      id: map["song"]['_id'] ?? "",
+      name: map["song"]['name'] ?? "",
+      artist: map["song"]['artist'] ?? "",
+      thumbnailURL: map["song"]['thumbnailURL'] ?? "",
+      songURL: map["song"]['audioURL'] ?? "",
+      hexCode: map["song"]['hexCode'] ?? "",
+    );
+  }
 
   factory SongModel.fromJson(String source) =>
       SongModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  factory SongModel.fromJsonFavorite(String source) =>
+      SongModel.fromMapFavorite(json.decode(source) as Map<String, dynamic>);
 
   @override
   bool get stringify => true;

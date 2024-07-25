@@ -8,4 +8,8 @@ class APIConstants {
   //Songs Endpoints
   static const uploadSongEndpoint = "/song/upload-song";
   static const getLatestSongsEndpoint = "/song/list";
+
+  //Favorites Endpoints
+  static const addRemoveFavoriteEndpoint = "/favorite";
+  static const getFavoritesEndpoint = "/favorite";
 }

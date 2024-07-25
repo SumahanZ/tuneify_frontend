@@ -5,6 +5,7 @@ import 'package:tuneify/core/failure/failure.dart';
 import 'package:tuneify/core/providers/shared_preference_provider.dart';
 import 'package:tuneify/core/typealias/typealias.dart';
 import 'package:tuneify/features/auth/data/datasources/auth_remote_datasource.dart';
+import 'package:tuneify/features/auth/domain/entities/user_entity.dart';
 import 'package:tuneify/features/auth/domain/repositories/auth_repository.dart';
 
 final authRepositoryProvider = Provider(
@@ -28,19 +29,20 @@ class AuthRepositoryImpl implements AuthRepository {
   );
 
   @override
-  ResultFuture<void> login({
+  ResultFuture<UserEntity> login({
     required String email,
     required String password,
   }) async {
     try {
       final response =
           await _authRemoteDataSource.login(email: email, password: password);
+
       _sharedPref.save("tokens", {
         "accessToken": response["refreshToken"],
         "refreshToken": response["accessToken"],
       });
 
-      return const Right(null);
+      return Right(response["user"]);
     } on ServerException catch (err) {
       return Left(ServerFailure.fromException(err));
     } on UnknownException catch (err) {
@@ -70,11 +72,11 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  ResultFuture<void> getData() async {
+  ResultFuture<UserEntity> getData() async {
     try {
       final tokens = await _sharedPref.read("tokens");
-      await _authRemoteDataSource.getData(tokens, _sharedPref);
-      return const Right(null);
+      final userData = await _authRemoteDataSource.getData(tokens, _sharedPref);
+      return Right(userData);
     } on SharedPreferenceException catch (err) {
       return Left(SharedPreferenceFailure.fromException(err));
     } on ServerException catch (err) {

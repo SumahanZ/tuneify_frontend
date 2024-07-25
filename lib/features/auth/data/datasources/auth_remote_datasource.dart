@@ -6,6 +6,7 @@ import "package:tuneify/core/exception/exception.dart";
 import "package:tuneify/core/providers/http_provider.dart";
 import "package:tuneify/core/providers/shared_preference_provider.dart";
 import "package:tuneify/core/utils/utils.dart";
+import "package:tuneify/features/auth/data/models/user_model.dart";
 
 final authRemoteDataSourceProvider =
     Provider((ref) => AuthRemoteDataSourceImpl(ref.watch(httpClientProvider)));
@@ -22,7 +23,10 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
 
-  Future<void> getData(Map<String, dynamic> tokens, SharedPrefService pref);
+  Future<UserModel> getData(
+    Map<String, dynamic> tokens,
+    SharedPrefService pref,
+  );
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -86,7 +90,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         );
       }
 
-      return jsonDecode(response.body) as Map<String, dynamic>;
+      final mappedResponse = jsonDecode(response.body);
+
+      mappedResponse["user"] = UserModel.fromJson(response.body);
+
+      return mappedResponse;
     } on ServerException {
       rethrow;
     } catch (err) {
@@ -95,7 +103,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   }
 
   @override
-  Future<void> getData(
+  Future<UserModel> getData(
     Map<String, dynamic> tokens,
     SharedPrefService pref,
   ) async {
@@ -117,6 +125,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       }
 
       handleRefreshAccessToken(response, pref);
+
+      return UserModel.fromJson(response.body);
     } on ServerException {
       rethrow;
     } catch (err) {

@@ -1,5 +1,4 @@
 import 'package:tuneify/core/typealias/typealias.dart';
-import 'package:tuneify/features/song/data/models/song_model.dart';
 import 'package:tuneify/features/song/domain/entities/song_entity.dart';
 
 abstract class SongRepository {
@@ -13,7 +12,11 @@ abstract class SongRepository {
 
   ResultFuture<List<SongEntity>> getLatestSongs();
 
-  Result<void> uploadLocalSongs(SongModel song);
+  Result<void> uploadLocalSongs(SongEntity song);
 
   Result<List<SongEntity>> getRecentlyPlayedSongs();
+
+  ResultFuture<String> addRemoveFavorite(String songId);
+
+  ResultFuture<List<SongEntity>> getSongFavorites();
 }

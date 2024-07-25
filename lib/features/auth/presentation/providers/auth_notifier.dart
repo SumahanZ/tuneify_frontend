@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:tuneify/core/enums/get_data_enum.dart';
 import 'package:tuneify/core/failure/failure.dart';
+import 'package:tuneify/core/providers/current_user_provider.dart';
 import 'package:tuneify/features/auth/domain/usecases/auth_get_data.dart';
 import 'package:tuneify/features/auth/domain/usecases/auth_login.dart';
 import 'package:tuneify/features/auth/domain/usecases/auth_signup.dart';
@@ -53,6 +54,7 @@ class AuthNotifier extends _$AuthNotifier {
     }, (r) async {
       await Future.delayed(const Duration(seconds: 1));
       state = const AuthState.loginUserSuccess();
+      ref.read(currentUserProvider.notifier).update((state) => r);
     });
   }
 
@@ -64,9 +66,13 @@ class AuthNotifier extends _$AuthNotifier {
         if (l is ServerFailure) {
           return state = const AuthState.getDataSuccess(GetData.notLoggedIn);
         }
+
         state = AuthState.failure(l);
       },
-      (r) => state = const AuthState.getDataSuccess(GetData.loggedIn),
+      (r) {
+        state = const AuthState.getDataSuccess(GetData.loggedIn);
+        ref.read(currentUserProvider.notifier).update((state) => r);
+      },
     );
   }
 }
